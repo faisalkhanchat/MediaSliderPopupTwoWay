@@ -1,0 +1,29 @@
+<button class="close" mat-button (click)="closeDialog()">
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/><path d="M0 0h24v24H0z" fill="none"/></svg>
+</button>
+<swiper class="bigSlider" [config]="bigSliderConfig" [(index)]="index"  (indexChange)="onIndexChange($event)" >
+  <div class="imgLarge" *ngFor="let slide of slides">
+    <img *ngIf="slide.type === 'IMAGE'" src="{{slide.path}}" alt=""> 
+    <div class="video" *ngIf="slide.type === 'VIDEO'">
+        <video controls  #myVideo>
+            <source src="{{slide.path}}" type="video/mp4">
+            <source src="{{slide.path}}" type="video/ogg">
+            Your browser does not support HTML5 video.
+        </video>
+    </div>
+    <div class="audio" *ngIf="slide.type === 'AUDIO'"> 
+        <audio controls  #myaudio>
+            <source src="{{slide.path}}" type="audio/ogg">
+            <source src="{{slide.path}}" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+    </div>
+  
+  </div>
+</swiper>
+
+<swiper class="thumbSlider" [config]="thumbsSliderConfig" [(index)]="index">
+  <div class="imgLarge" *ngFor="let slide of slides">
+    <div class="img"> <img src="{{slide.smPath}}" alt=""> </div>
+  </div>
+</swiper>

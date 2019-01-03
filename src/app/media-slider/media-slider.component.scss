@@ -1,0 +1,142 @@
+:host {
+    width: 100%;
+    height: 100%;
+    background: #1c252f;
+    z-index: 999;
+    position: absolute;
+    top: 0px;
+    left: 0;
+  }
+ 
+  .close{
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      padding: 0;
+      min-width: 37px;
+      z-index: 2;
+      svg{
+          fill: #ffffff;
+      }
+  }
+ 
+  .bigSlider {
+    display: inline-block;
+    width: 100%;
+    height: calc(100% - 120px);
+    @media (max-width: 767px) {
+        height: calc(100% - 90px);
+    }
+    .swiper-slide.imgLarge {
+      width: 100% !important;
+      text-align: center;
+      overflow: hidden;
+      display: flex;
+  
+      img {
+        margin: 0 auto;
+        max-width: calc(100% - 100px);
+        max-height: 100%;
+        object-fit: contain;
+        object-position: center;
+        @media (max-width: 767px) {
+          max-width: calc(100% - 50px);
+        }
+      }
+  
+      .video,
+      .audio {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+  
+        video {
+          max-width: 720px;
+          min-width: 420px;
+          max-height: 100%;
+  
+          @media (max-width: 767px) {
+            max-width: calc(100% - 60px);
+            width: 100%;
+            max-height: 100%;
+            min-width: auto;
+          }
+          @media (max-width: 767px) {
+              max-width: calc(100%);
+          }
+  
+        }
+  
+        audio {
+          min-width: 420px;
+  
+          @media (max-width: 767px) {
+            max-width: calc(100% - 50px);
+            width: 100%;
+            min-width: auto;
+          }
+        }
+      }
+    }
+  }
+  
+  .thumbSlider {
+    display: inline-block;
+    width: 100%;
+    height: 100px;
+    overflow: hidden;
+    @media (max-width: 767px) {
+      height: 80px;
+    }
+    @media (max-width: 480px) {
+      height: 70px;
+    }
+    
+    .swiper-slide.imgLarge {
+      margin-top: 7px;
+      text-align: center;
+      overflow: hidden;
+  
+      .img {
+        background: rgba(255, 255, 255, 0.1);
+        height: 90px;
+        width: 90px;
+        transition: .3s ease all;
+  
+        @media (max-width: 1024px) {
+          height: 80px;
+          width: 80px;
+        }
+        @media (max-width: 480px) {
+          height: 60px;
+          width: 60px;
+        }
+  
+        img {
+          margin: 0 auto;
+          height: 100%;
+          width: 100%;
+          transition: .3s ease all;
+          object-fit: contain;
+          object-position: center;
+        }
+      }
+  
+      &.swiper-slide-active {
+        .img {
+          padding: 2px;
+          border: 2px solid #2696be;
+  
+          img {
+            padding: 2px;
+            transition: .3s ease all;
+          }
+        }
+  
+  
+      }
+    }
+  }
+  
