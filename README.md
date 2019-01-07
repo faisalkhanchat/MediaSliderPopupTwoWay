@@ -1,4 +1,4 @@
-# MediaSliderPopup
+# Angular 4+ MediaSliderPopup
 
 Media Slider TwoWay same as Flock Media Popup, with Image , Video and Audio slider
 
