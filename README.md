@@ -1,6 +1,6 @@
-# MediaSliderPopup
+# Angular 8+ MediaSliderPopup
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.0.
+Media Slider TwoWay same as Flock Media Popup, with Image , Video and Audio slider
 
 ## Development server
 
