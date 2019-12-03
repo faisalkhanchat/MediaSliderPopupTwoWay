@@ -1,10 +1,11 @@
-import { Component, OnInit, ViewChild, AfterViewInit, ViewChildren, QueryList, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit, ViewChildren, QueryList, ElementRef, Inject } from '@angular/core';
 
 import {
   SwiperComponent,
   SwiperConfigInterface,
 } from 'ngx-swiper-wrapper';
-import { MatDialogRef } from '@angular/material';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { inject } from '@angular/core/testing';
 
 @Component({
   selector: 'app-media-slider',
@@ -28,7 +29,7 @@ export class MediaSliderComponent implements OnInit, AfterViewInit {
     },
     {
       type: 'IMAGE',
-      path: 'https://www.visitsingapore.com/content/dam/desktop/global/see-do-singapore/nature-wildlife/naturewildlife-1000x1000.jpg', 
+      path: 'https://www.visitsingapore.com/content/dam/desktop/global/see-do-singapore/nature-wildlife/naturewildlife-1000x1000.jpg',
       smPath: 'https://www.visitsingapore.com/content/dam/desktop/global/see-do-singapore/nature-wildlife/naturewildlife-1000x1000.jpg'
      },
      { type: 'VIDEO', path: 'assets/images/mov_bbb.mp4', smPath: 'assets/images/video_icon.png' },
@@ -40,7 +41,7 @@ export class MediaSliderComponent implements OnInit, AfterViewInit {
     },
     {
       type: 'IMAGE',
-      path: 'https://www.visitsingapore.com/content/dam/desktop/global/see-do-singapore/nature-wildlife/naturewildlife-1000x1000.jpg', 
+      path: 'https://www.visitsingapore.com/content/dam/desktop/global/see-do-singapore/nature-wildlife/naturewildlife-1000x1000.jpg',
       smPath: 'https://www.visitsingapore.com/content/dam/desktop/global/see-do-singapore/nature-wildlife/naturewildlife-1000x1000.jpg'
      },
      {
@@ -50,15 +51,13 @@ export class MediaSliderComponent implements OnInit, AfterViewInit {
     },
     {
       type: 'IMAGE',
-      path: 'https://www.visitsingapore.com/content/dam/desktop/global/see-do-singapore/nature-wildlife/naturewildlife-1000x1000.jpg', 
+      path: 'https://www.visitsingapore.com/content/dam/desktop/global/see-do-singapore/nature-wildlife/naturewildlife-1000x1000.jpg',
       smPath: 'https://www.visitsingapore.com/content/dam/desktop/global/see-do-singapore/nature-wildlife/naturewildlife-1000x1000.jpg'
      },
 
   ];
-  constructor( public dialogRef: MatDialogRef<MediaSliderComponent> ) { }
-  closeDialog() {
-    this.dialogRef.close('Pizza!');
-  }
+
+
   // public config: SwiperConfigInterface = {
   //   direction: "horizontal",
   //   slidesPerView: 1,
@@ -106,6 +105,18 @@ export class MediaSliderComponent implements OnInit, AfterViewInit {
     }
   };
 
+  index: any;
+  constructor(
+    public dialogRef: MatDialogRef<MediaSliderComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any
+    ) {
+       this.index = this.data.idnum;
+  }
+  closeDialog() {
+    this.dialogRef.close();
+  }
+
+
   public onIndexChange(index: number): void {
     // console.log('Swiper index: ', index);
     this.myVideo.forEach((videoRef: ElementRef<HTMLVideoElement>) => {
@@ -117,6 +128,8 @@ export class MediaSliderComponent implements OnInit, AfterViewInit {
     });
 
   }
+
+
 
   ngOnInit() { }
 
@@ -131,4 +144,3 @@ export class MediaSliderComponent implements OnInit, AfterViewInit {
 
   }
 }
-
